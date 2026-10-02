@@ -1,0 +1,20 @@
+node_modules/
+dist/
+coverage/
+test-results/
+playwright-report/
+blob-report/
+.vite/
+*.log
+*.tsbuildinfo
+.DS_Store
+Thumbs.db
+
+# Raw CT downloads (large). The processed case in apps/web/public/cases is committed.
+data/raw/
+
+# Generated previews (npx tsx scripts/render-preview.ts)
+data/previews/
+
+# Dev screenshots
+data/shots/

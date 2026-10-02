@@ -1,0 +1,20 @@
+{
+  "name": "@insonate/sono-engine",
+  "version": "1.0.0",
+  "description": "Ray-traced B-mode ultrasound simulation from segmented CT, with probe kinematics and a view coach.",
+  "type": "module",
+  "license": "MIT",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "sideEffects": false,
+  "keywords": [
+    "ultrasound",
+    "simulation",
+    "sonography",
+    "education",
+    "ct"
+  ]
+}

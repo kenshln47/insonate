@@ -1,0 +1,41 @@
+{
+  "name": "insonate",
+  "private": true,
+  "version": "1.0.0",
+  "description": "A free ultrasound scanning simulator for the browser, built from real CT anatomy.",
+  "type": "module",
+  "license": "MIT",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "engines": {
+    "node": ">=20.19"
+  },
+  "scripts": {
+    "dev": "npm run dev -w @insonate/web",
+    "build": "npm run build -w @insonate/web",
+    "preview": "npm run preview -w @insonate/web",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc -p packages/sono-engine && tsc -p apps/web && tsc -p apps/web/tsconfig.node.json && tsc -p scripts",
+    "lint": "biome check .",
+    "format": "biome check --write .",
+    "check": "npm run lint && npm run typecheck && npm test",
+    "e2e": "npm run e2e -w @insonate/web",
+    "data:fetch": "tsx scripts/fetch-case.ts",
+    "data:build": "tsx scripts/build-case.ts",
+    "icons": "tsx scripts/make-icons.ts",
+    "screenshots": "tsx scripts/screenshots.ts",
+    "vendor:aruco": "tsx scripts/vendor-aruco.ts",
+    "previews": "tsx scripts/render-preview.ts"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.5.15",
+    "@types/node": "^26.6.3",
+    "fast-check": "^4.10.2",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.3"
+  }
+}

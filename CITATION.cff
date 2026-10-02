@@ -1,0 +1,33 @@
+cff-version: 1.2.0
+message: "If you use Insonate in teaching or research, please cite it as below."
+title: "Insonate: a browser-based abdominal ultrasound scanning simulator built from CT anatomy"
+type: software
+authors:
+  - name: "Insonate contributors"
+license: MIT
+version: 1.0.0
+date-released: "2026-10-02"
+keywords:
+  - ultrasound
+  - sonography
+  - simulation
+  - medical education
+  - radiologic technology
+references:
+  - type: article
+    title: "TotalSegmentator: Robust Segmentation of 104 Anatomic Structures in CT Images"
+    authors:
+      - family-names: Wasserthal
+        given-names: Jakob
+    journal: "Radiology: Artificial Intelligence"
+    year: 2023
+    volume: 5
+    issue: 5
+    doi: 10.1148/ryai.230024
+  - type: dataset
+    title: "TotalSegmentator dataset (version 2)"
+    authors:
+      - family-names: Wasserthal
+        given-names: Jakob
+    doi: 10.5281/zenodo.10047292
+    license: CC-BY-4.0
