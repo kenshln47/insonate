@@ -65,7 +65,7 @@ export interface Messages {
     readonly copyFailed: string;
   };
   readonly loading: { readonly preparing: string; readonly failed: string };
-  readonly footer: { readonly local: string; readonly anatomy: string; readonly notDevice: string };
+  readonly footer: { readonly local: string; readonly source: string; readonly anatomy: string; readonly notDevice: string };
   readonly organs: Readonly<Record<OrganKey, string>>;
   readonly structures: Readonly<Record<StructureKey, string>>;
   readonly landmarks: Readonly<Record<LandmarkKey, string>>;
@@ -327,7 +327,12 @@ const en: Messages = {
     copyFailed: "Copy this link:",
   },
   loading: { preparing: "Preparing the patient: anatomy from a real CT scan…", failed: "Could not load the patient." },
-  footer: { local: "Insonate · runs entirely in your browser", anatomy: "Anatomy", notDevice: "teaching tool, not a medical device" },
+  footer: {
+    local: "Insonate · runs entirely in your browser",
+    source: "Source on GitHub",
+    anatomy: "Anatomy",
+    notDevice: "teaching tool, not a medical device",
+  },
   organs: {
     liver: "Liver",
     gallbladder: "Gallbladder",
@@ -922,7 +927,12 @@ const ar: Messages = {
     copyFailed: "انسخ هذا الرابط:",
   },
   loading: { preparing: "تجهيز المريض: تشريح من أشعة مقطعية حقيقية…", failed: "تعذّر تحميل بيانات المريض." },
-  footer: { local: "Insonate · يعمل بالكامل في متصفحك", anatomy: "التشريح", notDevice: "أداة تعليمية وليست جهازًا طبيًا" },
+  footer: {
+    local: "Insonate · يعمل بالكامل في متصفحك",
+    source: "الكود على GitHub",
+    anatomy: "التشريح",
+    notDevice: "أداة تعليمية وليست جهازًا طبيًا",
+  },
   organs: {
     liver: "الكبد",
     gallbladder: "المرارة",

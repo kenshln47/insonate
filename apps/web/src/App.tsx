@@ -160,7 +160,12 @@ function Workspace({ source }: { source: CaseData["json"]["source"] }) {
         </aside>
       </main>
       <footer className="footer">
-        <span>{t.footer.local}</span>
+        <span>
+          {t.footer.local} ·{" "}
+          <a href="https://github.com/kenshln47/insonate" target="_blank" rel="noreferrer">
+            {t.footer.source}
+          </a>
+        </span>
         <span>
           {t.footer.anatomy}: {source.dataset}, {source.license} · {t.footer.notDevice}
         </span>

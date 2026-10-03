@@ -1,11 +1,11 @@
 # Insonate
 
-[![CI](https://github.com/YOUR-USERNAME/insonate/actions/workflows/ci.yml/badge.svg)](https://github.com/YOUR-USERNAME/insonate/actions/workflows/ci.yml)
-[![Deploy](https://github.com/YOUR-USERNAME/insonate/actions/workflows/pages.yml/badge.svg)](https://github.com/YOUR-USERNAME/insonate/actions/workflows/pages.yml)
+[![CI](https://github.com/kenshln47/insonate/actions/workflows/ci.yml/badge.svg)](https://github.com/kenshln47/insonate/actions/workflows/ci.yml)
+[![Deploy](https://github.com/kenshln47/insonate/actions/workflows/pages.yml/badge.svg)](https://github.com/kenshln47/insonate/actions/workflows/pages.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-f2a43a.svg)](LICENSE)
 [![English · العربية](https://img.shields.io/badge/language-English%20%C2%B7%20%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A%D8%A9-3a3d42.svg)](#what-it-does)
 
-**▶ Try it now: [YOUR-USERNAME.github.io/insonate](https://YOUR-USERNAME.github.io/insonate/)**. Nothing to install; after the first visit it also works offline.
+**▶ Try it now: [kenshln47.github.io/insonate](https://kenshln47.github.io/insonate/)**. Nothing to install; after the first visit it also works offline.
 
 **Learn to scan before you scan a patient.** Insonate is a free abdominal ultrasound simulator that runs in the browser. You hold a virtual probe over real patients' anatomy, built from CT scans, and the image is computed live from the physics of sound in tissue, colour and spectral Doppler included. A coach scores your views and tells you which way to move, and teaching cases add gallstones, free fluid, hydronephrosis, an aortic aneurysm, a liver cyst or a fatty liver to the same patient. In the **reporting exam**, a patient arrives with a request form and findings drawn at random; you scan, measure and write the report organ by organ, and it is marked against what the patient really has, next to a consultant's model report.
 
@@ -70,7 +70,7 @@ Ultrasound is the most operator-dependent imaging modality: the image only exist
 
 ## Quick start
 
-The [online version](https://YOUR-USERNAME.github.io/insonate/) needs nothing but a browser. To run it yourself, you need Node.js 20.19 or newer.
+The [online version](https://kenshln47.github.io/insonate/) needs nothing but a browser. To run it yourself, you need Node.js 20.19 or newer.
 
 ```bash
 npm install
@@ -82,7 +82,7 @@ Then open http://localhost:5180. Drag the image itself to move the probe, or use
 | Command | What it does |
 | --- | --- |
 | `npm run dev` | Development server on port 5180 |
-| `npm run build` | Production build in `apps/web/dist` (set `BASE_PATH=/repo-name/` for GitHub Pages) |
+| `npm run build` | Production build in `apps/web/dist` (set `BASE_PATH=/insonate/` for GitHub Pages; the Pages workflow does this) |
 | `npm test` | Unit tests (Vitest) |
 | `npm run e2e` | Builds, then runs the browser tests (Playwright) |
 | `npm run check` | Lint, typecheck and unit tests |
@@ -197,6 +197,7 @@ The browser tests need a browser: run `npx playwright install chromium` once, or
 - **Anatomy:** cases s0319 and s0139 of the TotalSegmentator v2 dataset (1,228 CTs, 117 structures), [doi:10.5281/zenodo.10047292](https://doi.org/10.5281/zenodo.10047292), CC BY 4.0. Wasserthal J. et al., *TotalSegmentator: Robust Segmentation of 104 Anatomic Structures in CT Images*, Radiology: Artificial Intelligence 2023;5(5):e230024. The files in `apps/web/public/cases` are derived from those cases: resampled, cropped and converted to tissue classes. They remain under CC BY 4.0. The cases were downloaded from the [TotalSegmentator-CT-Lite](https://huggingface.co/datasets/YongchengYAO/TotalSegmentator-CT-Lite) mirror.
 - **Marker tracking:** [js-aruco2](https://github.com/damianofalcioni/js-aruco2) by Damiano Falcioni, based on js-aruco by Juan Mellado (MIT). It is vendored as ES modules in `apps/web/src/probecam/vendor`.
 - **Methods:** One-Euro filter (Casiez, Roussel and Vogel, CHI 2012); coplanar POSIT (Oberkampf, DeMenthon and Davis, 1996).
+- **Typeface:** IBM Plex Sans, Sans Arabic, Mono and Serif (SIL Open Font License 1.1), bundled through Fontsource.
 - **Libraries:** React, three.js, zustand and Vite (all MIT).
 
 The code is released under the [MIT licence](LICENSE). If you use Insonate in teaching or research, please cite it with [CITATION.cff](CITATION.cff).

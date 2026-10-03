@@ -3,8 +3,10 @@ message: "If you use Insonate in teaching or research, please cite it as below."
 title: "Insonate: a browser-based abdominal ultrasound scanning simulator built from CT anatomy"
 type: software
 authors:
-  - name: "Insonate contributors"
+  - alias: "kenshln47"
 license: MIT
+repository-code: "https://github.com/kenshln47/insonate"
+url: "https://kenshln47.github.io/insonate/"
 version: 1.0.0
 date-released: "2026-10-02"
 keywords:

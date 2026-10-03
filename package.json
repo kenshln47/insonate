@@ -5,6 +5,15 @@
   "description": "A free ultrasound scanning simulator for the browser, built from real CT anatomy.",
   "type": "module",
   "license": "MIT",
+  "author": "kenshln47",
+  "homepage": "https://kenshln47.github.io/insonate/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kenshln47/insonate.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kenshln47/insonate/issues"
+  },
   "workspaces": [
     "packages/*",
     "apps/*"
