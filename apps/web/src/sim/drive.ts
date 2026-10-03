@@ -26,6 +26,10 @@ const BOOST_S = 1.6;
 /** Pressing reaches full pressure in this time; letting go releases it faster (seconds). */
 const PRESS_S = 0.55;
 const RELEASE_S = 0.25;
+/** The longest frame a glide counts in full (seconds); a longer stall moves the probe no further than this. */
+const MAX_STEP_S = 0.1;
+/** Pressure follows the hand in real time however slow the frames, up to a stall of this long (seconds). */
+const MAX_PRESS_STEP_S = 0.5;
 
 interface Held {
   readonly move: Move;
@@ -124,8 +128,10 @@ export class ProbeDriver {
       this.raf = 0;
       return;
     }
-    // Clamp the step so a stalled frame does not jump the probe.
-    const dt = Math.min(0.05, Math.max(0, (now - this.last) / 1000));
+    // Time since the last frame, in real seconds: on a slow machine, fewer and longer frames cover the
+    // same movement. A stall (a hidden tab, a long frame) is capped, so the probe does not jump.
+    const elapsed = Math.max(0, (now - this.last) / 1000);
+    const dt = Math.min(MAX_STEP_S, elapsed);
     this.last = now;
     if (!state.frozen) {
       let pose = state.pose;
@@ -141,7 +147,7 @@ export class ProbeDriver {
     }
     // The hand keeps pressing (or easing off) even on a frozen image, so the loop always ends.
     if (pressure !== target) {
-      const step = dt / (target > pressure ? PRESS_S : RELEASE_S);
+      const step = Math.min(MAX_PRESS_STEP_S, elapsed) / (target > pressure ? PRESS_S : RELEASE_S);
       const next = target > pressure ? Math.min(target, pressure + step) : Math.max(target, pressure - step);
       state.setSettings({ pressure: Math.round(next * 1000) / 1000 });
     }

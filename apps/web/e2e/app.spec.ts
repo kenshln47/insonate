@@ -79,6 +79,8 @@ test.describe("Insonate", () => {
   });
 
   test("the probe in the hand: drag the image, double-click to centre, hold X to press", async ({ page }) => {
+    // Several renders per step: CI machines without a GPU draw the 3D view in software, slowly.
+    test.slow();
     await ready(page);
     // Longitudinal, marker toward the head: the head is on the image's left.
     const start: Pose = { phiDeg: 25, zMm: 0, rotationDeg: 0, tiltDeg: 0, rockDeg: 0 };
