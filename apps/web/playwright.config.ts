@@ -10,9 +10,12 @@ const url = external ?? "http://localhost:4180";
 
 export default defineConfig({
   testDir: "e2e",
-  timeout: 60_000,
-  expect: { timeout: 15_000 },
+  // CI machines have no GPU: the 3D view is drawn in software, so pages are several times slower
+  // there. One test at a time, with more time each, rather than two slow pages fighting for the CPU.
+  timeout: process.env.CI ? 120_000 : 60_000,
+  expect: { timeout: process.env.CI ? 30_000 : 15_000 },
   retries: process.env.CI ? 1 : 0,
+  workers: process.env.CI ? 1 : undefined,
   reporter: process.env.CI ? "github" : "list",
   use: {
     baseURL: url,

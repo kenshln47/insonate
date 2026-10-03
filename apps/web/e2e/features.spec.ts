@@ -3,8 +3,13 @@ import { expect, type Page, test } from "@playwright/test";
 async function ready(page: Page): Promise<void> {
   await page.goto("/");
   await expect
-    .poll(() =>
-      page.evaluate(() => (window as unknown as { __insonate: { getState(): { stats: { ms: number } } } }).__insonate.getState().stats.ms),
+    .poll(
+      () =>
+        page.evaluate(
+          () => (window as unknown as { __insonate: { getState(): { stats: { ms: number } } } }).__insonate.getState().stats.ms,
+        ),
+      // Loading the patient and the first frame: slow on a CI machine without a GPU.
+      { timeout: 60_000 },
     )
     .toBeGreaterThan(0);
 }

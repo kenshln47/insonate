@@ -33,7 +33,7 @@ function setPose(page: Page, pose: Pose): Promise<void> {
 /** Wait until the case has loaded and the worker has rendered a frame. */
 async function ready(page: Page): Promise<void> {
   await page.goto("/");
-  await expect.poll(async () => (await snapshot(page)).stats.ms, { timeout: 30_000 }).toBeGreaterThan(0);
+  await expect.poll(async () => (await snapshot(page)).stats.ms, { timeout: 60_000 }).toBeGreaterThan(0);
 }
 
 test.describe("Insonate", () => {
